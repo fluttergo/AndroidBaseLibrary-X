@@ -1,0 +1,10 @@
+application中使用，才能使用Logger,会写入文件
+Logger.startLogThread();
+
+每个类里面
+private static final Logger LOG                 = Logger.getLogger(xxxx.class); 
+即可使用
+
+
+写入sdcard log的LogHandlerThread 目前功能没有
+

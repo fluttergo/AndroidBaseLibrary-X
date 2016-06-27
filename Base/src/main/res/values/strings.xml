@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Base</string>
+
+    <string name="hours_ago">%1$s小时前</string>
+    <string name="minutes_ago">%1$s分钟前</string>
+    <string name="days_ago">%1$s天前</string>
+    <string name="months_ago">%1$s月前</string>
+    <string name="years_ago">%1$s年前</string>
+    <string name="just_now">刚刚</string>
+    <string name="today">今天</string>
+    <string name="yesterday">今天</string>
+    <string name="month">月</string>
+</resources>
