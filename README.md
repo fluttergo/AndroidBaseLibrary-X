@@ -46,7 +46,7 @@ XImageLoader.load(ImageView view,String URL);
 ### ListView
 
 ```java
-String jsonData = {"name":"tom","img":"/img/tomavator.jpg"} 
+String jsonData = "[{"name":"tom","img":"/img/tomavator.jpg"}]"
 int[] ids= {R.id.textview,R.id.imageview };
 String[] keys = {"Name","img"};
 JsonAdapter jsonAdapter = new JsonAdapter( jsonData,R.layout.item,ids,keys);
