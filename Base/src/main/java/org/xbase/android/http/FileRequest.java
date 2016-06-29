@@ -10,6 +10,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
+import com.android.volley.VolleyUtil;
+import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HttpHeaderParser;
 /**
  * 文件下载,默认返回下载URL
@@ -35,11 +37,15 @@ public class FileRequest extends Request<String> {
 	@Override
 	protected Response<String> parseNetworkResponse(NetworkResponse response) {
 		final Entry parseCacheHeaders = HttpHeaderParser.parseCacheHeaders(response);
+		String filePath = getCacheKey();
+		if(VolleyUtil.getQueue().getCache() instanceof DiskBasedCache){
+			filePath = ((DiskBasedCache)(VolleyUtil.getQueue().getCache())).getFileForKey(getCacheKey()).getAbsolutePath();
+		}
 		if (isAliveForver) {
 			parseCacheHeaders.ttl=Long.MAX_VALUE;
 			parseCacheHeaders.softTtl=Long.MAX_VALUE;
 		}
-		return Response.success(getCacheKey(),
+		return Response.success(filePath,
 				parseCacheHeaders);
 	}
 
