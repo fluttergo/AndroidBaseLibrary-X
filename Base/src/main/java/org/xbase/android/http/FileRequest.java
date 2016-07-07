@@ -1,7 +1,13 @@
 package org.xbase.android.http;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Cache.Entry;
@@ -37,15 +43,30 @@ public class FileRequest extends Request<String> {
 	@Override
 	protected Response<String> parseNetworkResponse(NetworkResponse response) {
 		final Entry parseCacheHeaders = HttpHeaderParser.parseCacheHeaders(response);
-		String filePath = getCacheKey();
+		String noCacheHeadFilePath ="";
 		if(VolleyUtil.getQueue().getCache() instanceof DiskBasedCache){
-			filePath = ((DiskBasedCache)(VolleyUtil.getQueue().getCache())).getFileForKey(getCacheKey()).getAbsolutePath();
+			final File cacheFile = ((DiskBasedCache)(VolleyUtil.getQueue().getCache())).getFileForKey(getCacheKey());
+			 noCacheHeadFilePath = cacheFile.getAbsolutePath()+"_NoCacheHeader";
+			 if (XHttp.getConfigBuilder().Debug) {
+				Log.d("FileRquest", "clip the cache Head From File:"+noCacheHeadFilePath);
+			}
+			if (!new File(noCacheHeadFilePath).exists()) {
+				try {
+					BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(noCacheHeadFilePath));
+					fos.write(response.data);
+					fos.flush();
+					fos.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
 		}
 		if (isAliveForver) {
 			parseCacheHeaders.ttl=Long.MAX_VALUE;
 			parseCacheHeaders.softTtl=Long.MAX_VALUE;
 		}
-		return Response.success(filePath,
+		return Response.success(noCacheHeadFilePath,
 				parseCacheHeaders);
 	}
 

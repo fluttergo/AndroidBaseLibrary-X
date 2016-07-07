@@ -72,6 +72,7 @@ public class XHttp {
 		String filePath  = url;
 		if(VolleyUtil.getQueue(app).getCache() instanceof DiskBasedCache){
 			filePath = ((DiskBasedCache)(VolleyUtil.getQueue().getCache())).getFileForKey(url).getAbsolutePath();
+			filePath+="_NoCacheHeader";
 		}
     	return  filePath;
     }

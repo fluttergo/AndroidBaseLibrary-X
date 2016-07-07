@@ -1,14 +1,9 @@
 package org.xbase.android.utils;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Base64;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Locale;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -16,9 +11,11 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
-/**
- * 加解密工具类
- */
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Base64;
+
+@SuppressLint("DefaultLocale")
 public class EncryptUtils {
 
     /**
@@ -27,7 +24,10 @@ public class EncryptUtils {
     private static final String DES_CBC_PKCS5_PADDING = "DES/CBC/PKCS5Padding";
     private final static String Algorithm_MD5         = "MD5";
     private static String       mDesKey               = "XXXXXXX";
-
+    /**
+     * 更新DES加密的密钥
+     * @param desKey
+     */
     public static void setDesKey(String desKey) {
         EncryptUtils.mDesKey = desKey;
     }
@@ -119,9 +119,7 @@ public class EncryptUtils {
      * @return
      */
     public static String encryptBASE64(String pStr) {
-        if (pStr == null || pStr.length() == 0) {
-            return null;
-        }
+        if (pStr == null || pStr.length() == 0) { return null; }
         try {
             byte[] encode = pStr.getBytes("UTF-8");
             // base64 加密
@@ -238,15 +236,13 @@ public class EncryptUtils {
     }
 
     public static String encodeBase64(byte[] pInputBytes) {
-        if (pInputBytes == null)
-            return null;
+        if (pInputBytes == null) return null;
         String destStr = new String(Base64.encode(pInputBytes, Base64.DEFAULT));
         return destStr;
     }
 
     public static byte[] base64Decode(String pInput) throws IOException {
-        if (pInput == null)
-            return null;
+        if (pInput == null) return null;
         return Base64.decode(pInput, Base64.DEFAULT);
     }
 
@@ -262,11 +258,12 @@ public class EncryptUtils {
                 for (int i = 0; i < md5digest.length; ++i) {
                     sb.append((Integer.toHexString((md5digest[i] & 0xFF) | 0x100)).substring(1, 3));
                 }
-                return sb.toString().toUpperCase(Locale.getDefault());
+                return sb.toString().toUpperCase();
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return "";
     }
+    
 }

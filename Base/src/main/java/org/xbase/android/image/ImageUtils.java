@@ -53,7 +53,7 @@ public class ImageUtils {
 	private static final String URL_HTTP_PREFIX = "http://";
 	private static final String URL_HTTPS_PREFIX = "https://";
 	private static String uiImgPrefix = "http://";
-	private static ImageUtils mUtils;
+	private static volatile ImageUtils mUtils;
 	private static final Object mLock = new Object();
 	private ImageLoader mImageLoader;
 	private DisplayImageOptions mDefaultOptions;
@@ -74,9 +74,11 @@ public class ImageUtils {
 	}
 
 	public static ImageUtils getInstance() {
-		synchronized (mLock) {
-			if (mUtils == null) {
-				mUtils = new ImageUtils();
+		if (mUtils==null){
+			synchronized (mLock) {
+				if (mUtils == null) {
+					mUtils = new ImageUtils();
+				}
 			}
 		}
 		return mUtils;
