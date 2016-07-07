@@ -2,13 +2,15 @@ package org.xbase.android.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Button;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
 
-public class ActivityMainActivity extends Activity  {
+public class ActivityMainActivity extends Activity {
 
 
     @Override
@@ -20,11 +22,13 @@ public class ActivityMainActivity extends Activity  {
 
     }
 
-    @OnClick(R.id.button) void onButtonClick() {
+    @OnClick(R.id.button)
+    void onButtonClick() {
         //TODO implement
     }
 
-    @OnLongClick(R.id.button) boolean onButtonLongClick() {
+    @OnLongClick(R.id.button)
+    boolean onButtonLongClick() {
         //TODO implement
         return true;
     }
