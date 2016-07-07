@@ -57,3 +57,14 @@ XListView.setAdapter(jsonAdapter);
 * 下拉刷新,到底自动加载更多
 *  分页append
 *  JsonAdapter,UrlAdapter
+
+```java
+        listView = (ListView) view.findViewById(R.id.listView);
+        XHttp.get("http://shuiguorili.com:8080/leavemessage", new AjaxCallBack() {
+            @Override
+            public void onSuccess(String t) {
+                super.onSuccess(t);
+                listView.setAdapter(new JsonArrayAdapter(view.getContext(),t,R.layout.item_listview_t_i, new String[]{"context"}, new int[] {R.id.tv_name}));
+            }
+        });
+```
