@@ -68,3 +68,29 @@ XListView.setAdapter(jsonAdapter);
             }
         });
 ```
+
+###BottomBarNavigation
+
+* 底部导航栏
+
+```java
+BottomBarItem[] mFragments = new BottomBarItem[5];
+        
+        mFragments[0] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.home_normal,R.drawable.home_press) ;
+        mFragments[1] = new BottomBarItem( BaseFragment.creatBaseFramgent(GoodTypeFragment.class),R.drawable.shopping_normal,R.drawable.shopping_press) ;
+        mFragments[2] = new BottomBarItem(BaseFragment.creatBaseFramgent(LeaveMessageListragment.class),R.drawable.smlt_normal,R.drawable.smlt_press) ;
+        mFragments[3] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.shoppingcart_normal,R.drawable.shoppingcart_press) ;
+        mFragments[4] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.user_normal,R.drawable.user_press) ;
+
+        BottomBar.switchFragment(this,mFragments,0);
+
+        BottomBar.initBottomBar(this,R.id.container_fragment,R.id.bottomBar,mFragments,new OnSelectListenerImp() {
+            @Override
+            public void onSelect(List<View> items, BottomBarItem[] mFragments,
+                                 int select) {
+                super.onSelect(items, mFragments, select);
+                BottomBar.switchFragment(BottomNavigationActivity.this,mFragments,select);
+                curFragmentTag = mFragments[select].getClass().getSimpleName();
+            }
+        });
+```

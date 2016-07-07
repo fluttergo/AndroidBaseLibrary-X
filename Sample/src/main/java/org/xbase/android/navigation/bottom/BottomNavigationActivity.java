@@ -37,6 +37,7 @@ public class BottomNavigationActivity extends BaseActivity {
         setContentView(R.layout.activity_bottom_navigation);
         ButterKnife.bind(this);
         BottomBarItem[] mFragments = new BottomBarItem[5];
+
         mFragments[0] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.home_normal,R.drawable.home_press) ;
         mFragments[1] = new BottomBarItem( BaseFragment.creatBaseFramgent(GoodTypeFragment.class),R.drawable.shopping_normal,R.drawable.shopping_press) ;
         mFragments[2] = new BottomBarItem(BaseFragment.creatBaseFramgent(LeaveMessageListragment.class),R.drawable.smlt_normal,R.drawable.smlt_press) ;
