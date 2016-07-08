@@ -58,7 +58,7 @@ XListView.setAdapter(jsonAdapter);
 *  分页append
 *  JsonAdapter,UrlAdapter
 
-简单示例如下:[!BaseListFragment详细示例](https://github.com/geliangdashen/AndroidBaseLibrary-X/wiki/MultipleTouchGestrueListener)
+简单示例如下:[!BaseListFragment详细示例](https://github.com/geliangdashen/AndroidBaseLibrary-X/wiki/BaseListFragment)
 
 ```java
         listView = (ListView) view.findViewById(R.id.listView);
@@ -96,3 +96,15 @@ BottomBarItem[] mFragments = new BottomBarItem[5];
             }
         });
 ```
+
+
+> 引用
+
+    compile "com.android.support:support-v4:+"
+    compile "com.android.support:recyclerview-v7:22.1.1"
+    compile "com.nineoldandroids:library:2.4.0"
+    compile "cn.bingoogolapple:bga-refreshlayout:1.1.5@aar"
+    eventbus.jar
+    gson.jar
+    volley.jar
+    
