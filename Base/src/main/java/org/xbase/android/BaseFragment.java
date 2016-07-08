@@ -14,7 +14,7 @@ import android.view.View.OnClickListener;
 /**Fragment的基础类*/
 public abstract class BaseFragment extends Fragment   {
 	public String TAG = "BaseFragment";
-	private View mRootView;
+	public View mRootView;
 
 	public static Fragment creatBaseFramgent(Bundle extras,
 											 Class<? extends BaseFragment> clazz) {

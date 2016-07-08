@@ -69,4 +69,10 @@ public class JsonArrayAdapter extends SimpleAdapter {
 			super.append(map);
 		}
 	}
+	public  void append(String data){
+		if (data !=null&&data.length()>0) {
+			ArrayList<HashMap<String, String>> map = jsonStrng2HashMap(data);
+			super.append(map);
+		}
+	}
 }

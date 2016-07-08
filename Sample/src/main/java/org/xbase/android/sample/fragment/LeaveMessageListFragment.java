@@ -13,9 +13,8 @@ import org.xbase.android.http.AjaxCallBack;
 import org.xbase.android.http.XHttp;
 import org.xbase.android.sample.R;
 
-public class LeaveMessageListragment extends BaseFragment {
+public class LeaveMessageListFragment extends BaseFragment {
 
-    private FrameLayout doorRootContentFl;
     private ListView listView;
 
     @Override
@@ -28,8 +27,7 @@ public class LeaveMessageListragment extends BaseFragment {
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        doorRootContentFl = (FrameLayout) view.findViewById(R.id.door_root_content_fl);
-        listView = (ListView) view.findViewById(R.id.listView);
+        listView = (ListView) view.findViewById(android.R.id.list);
         XHttp.get("http://shuiguorili.com:8080/leavemessage", new AjaxCallBack() {
             @Override
             public void onSuccess(String t) {

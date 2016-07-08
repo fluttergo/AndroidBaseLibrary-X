@@ -11,7 +11,8 @@ import org.xbase.android.BaseFragment;
 import org.xbase.android.sample.R;
 import org.xbase.android.sample.fragment.GoodTypeFragment;
 import org.xbase.android.sample.fragment.GoodsListragment;
-import org.xbase.android.sample.fragment.LeaveMessageListragment;
+import org.xbase.android.sample.fragment.LeaveMessageListFragment;
+import org.xbase.android.sample.fragment.ZoneFragment;
 import org.xbase.android.view.bottombar.BottomBar;
 import org.xbase.android.view.bottombar.BottomBarItem;
 import org.xbase.android.view.bottombar.OnSelectListenerImp;
@@ -40,8 +41,8 @@ public class BottomNavigationActivity extends BaseActivity {
 
         mFragments[0] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.home_normal,R.drawable.home_press) ;
         mFragments[1] = new BottomBarItem( BaseFragment.creatBaseFramgent(GoodTypeFragment.class),R.drawable.shopping_normal,R.drawable.shopping_press) ;
-        mFragments[2] = new BottomBarItem(BaseFragment.creatBaseFramgent(LeaveMessageListragment.class),R.drawable.smlt_normal,R.drawable.smlt_press) ;
-        mFragments[3] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.shoppingcart_normal,R.drawable.shoppingcart_press) ;
+        mFragments[2] = new BottomBarItem(BaseFragment.creatBaseFramgent(LeaveMessageListFragment.class),R.drawable.smlt_normal,R.drawable.smlt_press) ;
+        mFragments[3] = new BottomBarItem(BaseFragment.creatBaseFramgent(ZoneFragment.class),R.drawable.shoppingcart_normal,R.drawable.shoppingcart_press) ;
         mFragments[4] = new BottomBarItem(BaseFragment.creatBaseFramgent(GoodsListragment.class),R.drawable.user_normal,R.drawable.user_press) ;
 
         BottomBar.switchFragment(this,mFragments,0);
