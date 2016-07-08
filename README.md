@@ -54,9 +54,11 @@ jsonAdapter.configHost("WWW.android.com");
 XListView.setAdapter(jsonAdapter);
 ```
 
-* 下拉刷新,到底自动加载更多
+* 下拉刷新,到底自动加载更多 
 *  分页append
 *  JsonAdapter,UrlAdapter
+
+简单示例如下:[!BaseListFragment详细示例](https://github.com/geliangdashen/AndroidBaseLibrary-X/wiki/MultipleTouchGestrueListener)
 
 ```java
         listView = (ListView) view.findViewById(R.id.listView);
