@@ -45,12 +45,9 @@ public class GoodsListragment extends BaseListFragment {
         XHttp.get("http://shuiguorili.com:8080/goods?type=0&pagesize=10&pageindex=" + 1, new AjaxCallBack() {
             @Override
             public void onSuccess(String t) {
-
                 super.onSuccess(t);
                 jsonArrayAdapter = new JsonArrayAdapter(getActivity(), t, R.layout.item_listview_t_i, new String[]{"name"}, new int[]{R.id.tv_name});
                 listView.setAdapter(jsonArrayAdapter);
-                // 在这里加载最新数据
-                // 加载完毕后在UI线程结束下拉刷新
                 endRefreshing();
             }
         });
@@ -71,7 +68,6 @@ public class GoodsListragment extends BaseListFragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        // 加载完毕后在UI线程结束加载更多
                     }
                 }
 
