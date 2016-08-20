@@ -18,13 +18,16 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])//copy jar to libs ->  right mouse ->as library
    // compile files('libs/universal-image-loader-1.9.3.jar')
     //compile files('libs/gson-2.3.1.jar')
    // compile files('libs/volley.jar')
+    compile project(path: ':autolayout')
     compile "com.android.support:support-v4:+"
-    compile "com.android.support:recyclerview-v7:22.1.1"
+    compile "com.android.support:recyclerview-v7:+"
     compile "com.nineoldandroids:library:2.4.0"
     compile "cn.bingoogolapple:bga-refreshlayout:1.1.5@aar"
+
 }

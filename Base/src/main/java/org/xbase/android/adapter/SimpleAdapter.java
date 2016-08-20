@@ -29,6 +29,8 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.zhy.autolayout.utils.AutoUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -231,7 +233,7 @@ public class SimpleAdapter extends BaseAdapter implements Filterable,
 		}
 
 		bindView(position, v);
-
+		AutoUtils.autoSize(v);
 		return v;
 	}
 

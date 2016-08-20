@@ -1,10 +1,10 @@
 package org.xbase.android.sample.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import org.xbase.android.BaseFragment;
@@ -12,6 +12,7 @@ import org.xbase.android.adapter.JsonArrayAdapter;
 import org.xbase.android.http.AjaxCallBack;
 import org.xbase.android.http.XHttp;
 import org.xbase.android.sample.R;
+import org.xbase.android.sample.activity.LoginActivity;
 
 public class ZoneFragment extends BaseFragment {
 
@@ -35,7 +36,12 @@ public class ZoneFragment extends BaseFragment {
                 listView.setAdapter(new JsonArrayAdapter(view.getContext(),t,R.layout.item_listview_t_i, new String[]{"context"}, new int[] {R.id.tv_name}));
             }
         });
-
+        findViewById(R.id.button2).setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
     }
 
 }
