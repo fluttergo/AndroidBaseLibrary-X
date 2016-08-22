@@ -12,8 +12,9 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.cache.disc.impl.BaseDiscCache;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.impl.BaseDiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.DisplayImageOptions.Builder;
@@ -57,7 +58,7 @@ public class ImageUtils {
 	private static final Object mLock = new Object();
 	private ImageLoader mImageLoader;
 	private DisplayImageOptions mDefaultOptions;
-	private BaseDiscCache mDiscCache;
+	private BaseDiskCache mDiscCache;
 	private String mUrlPrefix;
 	private OnConfigListener mOnConfigListener;
 
@@ -133,7 +134,7 @@ public class ImageUtils {
 		if (cacheDir != null) {
 			LOG.d("Image cache dir: " + cacheDir.getPath());
 		}
-		mDiscCache = new UnlimitedDiscCache(cacheDir);
+		mDiscCache = new UnlimitedDiskCache(cacheDir);
 
 		ImageLoaderConfiguration.Builder configBuilder = new ImageLoaderConfiguration.Builder(
 				pContext);

@@ -16,7 +16,7 @@
         android:layout_height="320px"
         android:layout_marginTop="128px"
         android:id="@+id/imageView3"
-        android:src="@drawable/pinpan_5fen"
+        android:src="@drawable/logo"
         android:layout_gravity="center_horizontal" />
     <!-- Login progress -->
     <ProgressBar

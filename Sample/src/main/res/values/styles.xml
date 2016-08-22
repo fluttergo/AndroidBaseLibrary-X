@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
-
+        <item name="android:windowBackground">@color/colorBg</item>
     </style>
 
 </resources>

@@ -15,4 +15,6 @@
         completions."
     </string>
     <string name="defaultString">default</string>
+    <string name="title_kinds_list">Items</string>
+    <string name="title_kinds_detail">Kinds Detail</string>
 </resources>

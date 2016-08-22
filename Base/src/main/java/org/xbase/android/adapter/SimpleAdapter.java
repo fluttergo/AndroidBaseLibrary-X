@@ -228,12 +228,13 @@ public class SimpleAdapter extends BaseAdapter implements Filterable,
 		View v;
 		if (convertView == null || mItemLayouts != null) {
 			v = mInflater.inflate(resource, parent, false);
+			//		AutoUtils.autoSize(v);
 		} else {
 			v = convertView;
 		}
 
 		bindView(position, v);
-		AutoUtils.autoSize(v);
+
 		return v;
 	}
 

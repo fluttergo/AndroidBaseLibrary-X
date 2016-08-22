@@ -1,0 +1,38 @@
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:context="org.xbase.android.sample.activity.KindsListActivity">
+
+    <!--
+    This layout is a two-pane layout for the Items
+    master/detail flow.
+    
+    -->
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/kinds_list"
+        android:name="org.xbase.android.sample.activity.KindsListFragment"
+        android:layout_width="200px"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="org.xbase.android.sample.activity.KindsListActivity"
+        android:layout_marginTop="96px"
+        android:showDividers="middle"
+        android:divider="?android:attr/dividerHorizontal"
+        android:background="#33333333"
+        tools:listitem="@layout/kinds_list_content" />
+
+    <FrameLayout
+        android:layout_marginTop="96px"
+        android:layout_marginLeft="200px"
+        android:id="@+id/kinds_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
+
+</com.zhy.autolayout.AutoFrameLayout>

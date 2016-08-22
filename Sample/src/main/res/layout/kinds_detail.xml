@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kinds_detail"
+    style="?android:attr/textAppearanceLarge"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:textSize="32px"
+    android:text="32"
+    android:drawableRight="@android:drawable/ic_menu_edit"
+    android:textIsSelectable="true"
+    tools:context="org.xbase.android.sample.activity.KindsDetailFragment" />
